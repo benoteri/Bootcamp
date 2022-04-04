@@ -5,16 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp</title>
+
+    <link rel="stylesheet" type="text/css" href="survey.css">
+    <script src="survey.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 </head>
 <body>
-    <header></header>
-    <div class="form">
-
-        <form action="">
-            
-        </form>
-    </div>
-
+    <div class="ui container">
+        <div class="main-container">
+            <div class="left-container">
+                <h2 id="show-counter"></h2>
+                <p id="show-data">WHAT DID YOU LIKE ABOUT THE BOOTCAMP?</p>
+            </div>
     
+            <div class="right-container">
+                1. The technologies used <input type="checkbox" id="check1" name="tech" value="The technologies used"><br>
+                2. The skills acquired <input type="checkbox" id="check2" name="skills" value="The skills acquired"><br>
+                3. The food and drinks <input type="checkbox" id="check3" name="foods" value="The food and drinks"><br>
+                4. The accommodation <input type="checkbox" id="check4" name="accommodation" value="The accommodation"><br>
+                5. The trainers <input type="checkbox" id="check5" name="trainers" value="The trainers"><br>
+                6. Your fellow students <input type="checkbox" id="check6" name="students" value="Your fellow students"><br>
+                7. Nothing <input type="checkbox" id="check7" name="nil"  value="Nothing"><br>
+
+                        <button onclick="checkCheckbox()">Submit</button> <br>  
+                        
+                        <h4 style="color:green" id="result"></h3>   
+                            <h4 style="color:red" id="error"></h3>  
+            </div>
+            <div id="bootchart" style="height: 250px;">
+
+            </div>
+
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js">
+        new Morris.Line({
+            // ID of the element in which to draw the chart.
+            element: 'bootchart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [//ss
+              { Choice: 'The Technologies used', value: 20 },
+              { Choice: 'Skills Aqcuired', value: 10 },
+              { Choice: 'Food and Drinks', value: 5 },
+              { Choice: 'Accomodation', value: 5 },
+              { Choice: 'Trainers', value: 20 },
+              {Choice: 'Fellow Students', value: }
+            ],
+            // The name of the data record attribute that contains x-values.
+            xkey: 'Choice',
+            // A list of names of data record attributes that contain y-values.In this case will be an array that will be in the back-end
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Value']
+          });
+          </script>
 </body>
 </html>
